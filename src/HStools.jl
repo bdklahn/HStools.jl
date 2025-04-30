@@ -27,7 +27,7 @@ function rollup(;h6_id_text::Dict, htsdata_json3::JSON3.Array)
         rest = join(htsno_parts[3:end])
         if haskey(r, :description) && !isempty(r.description)
             txt = get(h6_id_text, H6_id, "")
-            if contains(txt, r.description)
+            if contains(lowercase(txt), lowercase(r.description))
                 @warn "already there: $txt"
                 continue
             end
