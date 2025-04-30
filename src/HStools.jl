@@ -28,7 +28,7 @@ function rollup(;h6_id_text::Dict, htsdata_json3::JSON3.Array)
         if haskey(r, :description) && !isempty(r.description)
             txt = get(h6_id_text, H6_id, "")
             if contains(lowercase(txt), lowercase(r.description))
-                @warn "already there: $txt"
+                @warn "already in $H6_id text: $(r.description)"
                 continue
             end
             @show h6_id_text[H6_id] = "$txt; $rest - $(r.description)"
